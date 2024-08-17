@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 // PROMPT from chat
 // Exercise: Building a Simple ATM Simulation
 // Problem Description:
@@ -41,13 +35,49 @@ import (
 // Utilize control structures to manage the program’s flow and user interactions.
 // This exercise will help you bring together concepts of control structures, functions, and variables into a cohesive program.
 
+package main
+
+import (
+	"fmt"
+)
 
 func display() {
 	fmt.Println("********** OPTIONS ****************\"n" +
-				"SHOW BALANCE (type: show_balance)\n" +
-				"DEPOSIT (type: deposit)\n" +
-				"WITHDRAW (type: withdraw)\n" +
-				"DISPLAY MENU (type: display)")
+		"SHOW BALANCE (type: show_balance)\n" +
+		"DEPOSIT (type: deposit)\n" +
+		"WITHDRAW (type: withdraw)\n" +
+		"DISPLAY MENU (type: display)\n" +
+		"QUIT (type: quit)")
+}
+
+func show_balance(balance *float64) {
+	fmt.Printf("Current Balance: %f\n", *balance)
+}
+
+func deposite(balance *float64) {
+	fmt.Printf("Balance: %f\n", *balance)
+	fmt.Print("How much to deposite: ")
+	var deposite float64
+	fmt.Scanln(&deposite)
+	*balance += deposite
+	fmt.Printf("Transaction finished\n"+
+		"Current Balance: %f\n", *balance)
+
+}
+
+func withdraw(balance *float64) {
+	fmt.Printf("balance: %f\n", *balance)
+	fmt.Print("How much to withdraw: ")
+	var withdraw float64
+	fmt.Scanln(&withdraw)
+
+	if withdraw > *balance {
+		fmt.Println("ERROR: withdraw amount is greater than balance")
+		return
+	}
+	*balance -= withdraw
+	fmt.Printf("Transaction finished\n"+
+		"Current Balance: %f\n", *balance)
 }
 
 func main() {
@@ -55,21 +85,22 @@ func main() {
 	display()
 	var current_amount float64 = 1000
 	var option string
-	for (
+	for {
 		fmt.Println("Enter option: ")
 		fmt.Scanln(&option)
 
 		switch option {
 		case "show_balance":
 			show_balance(&current_amount)
-		}
-		case "deposite":
+		case "deposit":
 			deposite(&current_amount)
 		case "withdraw":
-			deposite(&current_amount)
+			withdraw(&current_amount)
 		case "display":
 			display()
-	)
-
+		case "quit":
+			return
+		}
+	}
 
 }
