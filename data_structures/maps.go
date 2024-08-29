@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import (
 	"fmt"
@@ -32,7 +32,7 @@ func pracMap() {
 	fmt.Printf("value: %d \n", v)
 }
 
-func main() {
-	fmt.Println("map")
-	pracMap()
-}
+// func main() {
+// 	fmt.Println("map")
+// 	pracMap()
+// }

@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import (
 	"fmt"
@@ -50,8 +50,8 @@ func arrayFormat() {
 
 }
 
-func main() {
-	fmt.Println("array")
-	arrayFormat()
+// func main() {
+// 	fmt.Println("array")
+// 	arrayFormat()
 
-}
+// }

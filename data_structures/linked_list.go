@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import (
 	"container/list"
@@ -17,7 +17,7 @@ func pracLinkedList() {
 	}
 }
 
-func main() {
-	fmt.Println("linked list")
-	pracLinkedList()
-}
+// func main() {
+// 	fmt.Println("linked list")
+// 	pracLinkedList()
+// }
